@@ -1,13 +1,49 @@
+/* Общие стили для страницы */
 body {
-  background-color: #fff;
-  color: #636e72;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  color: #333;
+  overflow: hidden;
 }
 
+/* Для текста приветствия */
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
 
+input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 18px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #6c5ce7;
+}
+
+/* Кликнутые элементы меняют цвет */
 .clicked {
   color: #6c5ce7;
 }
 
+/* Скрытые и показываемые элементы */
 .form,
 .greetings {
   display: none;
@@ -17,6 +53,7 @@ body {
   display: block;
 }
 
+/* Анимация появления */
 @keyframes fadein {
   from {
     opacity: 0;
@@ -27,8 +64,9 @@ body {
   }
 }
 
+/* Фоновое изображение */
 .bgImage {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
@@ -39,4 +77,109 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   animation: fadein 1s linear;
+  filter: blur(4px);
+}
+
+/* Стили для часов */
+.js-clock h1 {
+  font-size: 96px;
+  color: #fff;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadein 2s ease-in-out;
+}
+
+/* Приветствие пользователя */
+.js-greetings {
+  font-size: 36px;
+  margin-top: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadein 2s ease-in-out;
+}
+
+/* Форма для имени */
+.js-form input {
+  font-size: 24px;
+  padding: 15px;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.js-form input:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+}
+
+/* To-Do List форма */
+
+.js-toDoForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.js-toDoForm input {
+  font-size: 20px;
+  padding: 15px;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-sizing: border-box;
+}
+
+/* Стили для списка задач */
+.js-toDoList {
+  margin-top: 20px;
+  width: 50%;
+  max-width: 400px;
+}
+
+.js-toDoList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.js-toDoList li:hover {
+  background-color: rgba(108, 92, 231, 0.1);
+}
+
+/* Погода */
+.js-weather {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #fff;
+}
+
+/* Анимация для списка задач */
+@keyframes listFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.js-toDoList li {
+  animation: listFadeIn 0.5s ease-in;
 }
