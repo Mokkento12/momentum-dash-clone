@@ -14,8 +14,21 @@ function getWeather(lat, lng) {
     .then(function (json) {
       const temperature = json.main.temp;
       const place = json.name;
+      const weatherDescription = json.weather[0].description;
+      const weatherIcon = json.weather[0].icon;
+      const iconUrl = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
 
-      weatherContainer.innerText = `${temperature} @ ${place}`;
+      // Форматированный вывод с иконкой и описанием
+      weatherContainer.innerHTML = `
+        <div style="display: flex; align-items: center;">
+          <img src="${iconUrl}" alt="${weatherDescription}" style="margin-right: 10px;" />
+          <div>
+            <span style="font-size: 24px; font-weight: bold;">${temperature}°C</span> 
+            <span>in ${place}</span>
+            <p style="margin: 5px 0 0;">${weatherDescription}</p>
+          </div>
+        </div>
+      `;
     });
 }
 
